@@ -17,7 +17,30 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: [{
+          loader: 'style-loader'
+        }, {
+          loader: 'css-loader'
+        }]
+      },
+      {
+        test: /.*\.(gif|png|jpe?g)$/i,
+        exclude: /node_modules/,
+        use: {loader: 'file-loader'}
+      },
+      {
+        test: /\.svg$/,
+        use: [{
+          loader: 'svg-url-loader',
+          options: {
+            limit: 10000
+          },
+        }],
+      },
     ]
   }
 }

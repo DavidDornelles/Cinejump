@@ -1,4 +1,5 @@
 :root {
+  --black: #000000;
   --green: #80BCB8;
   --pink: #E83F5B;
   --white: #FFFFFF;
@@ -6,28 +7,37 @@
 
 * {
   box-sizing: border-box;
+  color: var(--white);
   font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
   list-style: none;
   margin: 0;
   padding: 0;
   outline: 0;
+  text-decoration: none;
 }
 
 .container {
   margin: 0 auto;
   max-width: 1000px;
+  padding: 0 10px;
 }
 
 .pa {
   position: absolute;
 }
 
+.pr {
+  position: relative;
+}
+
 .bg-pink {
   background-color: var(--pink);
-  height: 428px;
+  height: 368px;
   width: 100%;
   z-index: -1;
 }
+
 .bg-green {
   background-color: var(--green);
 }
@@ -39,23 +49,125 @@
 }
 
 .nav-items {
-  color: var(--white);
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: grid;
+  grid-template-areas:
+    "logo logo logo logo"
+    "movies series search account";
+  grid-template-columns: auto auto repeat(2, 40px);
   width: 100%;
 }
 
-.nav-item {
-  min-width: 80px;
+.nav-items:first-child {
+  grid-area: movies;
 }
 
-.nav-item + .nav-item {
-  margin-left: 10px;
+.nav-items:nth-child(2nd) {
+  grid-area: series;
 }
 
 .nav-logo {
-  width: 100%;
+  grid-area: logo;
   text-align: center;
-  margin-right: 90px;
+  width: 100%;
+}
+
+.highlights {
+  display: grid;
+  gap: 16px;
+  grid-template-areas:
+    "primary"
+    "secondary"
+    "tertiary";
+  grid-template-rows: 328px 156px 156px;
+}
+
+.highlights > div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.highlights div img {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+}
+
+.highlights .primary {
+  grid-area: primary;
+}
+
+.highlights .secondary {
+  grid-area: secondary;
+}
+
+.highlights .tertiary {
+  grid-area: tertiary;
+}
+
+.highlights .secondary .infos, .highlights .tertiary .infos {
+  padding: 8px;
+}
+
+.highlights .secondary .infos .infos-text,
+.highlights .tertiary .infos .infos-text {
+  font-weight: 400;
+  line-height: 18.38px;
+}
+
+.infos {
+  background-color: rgba(0, 0, 0, .3);
+  padding: 16px;
+  bottom: 0;
+  width: 100%;
+}
+
+.title {}
+.subtitle {}
+.infos-title {
+  font-size: 24px;
+  line-height: 27.58px;
+}
+.infos-text {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+}
+
+/* @media screen and (min-width: 425px) {
+
+  .nav-item {
+    max-width: 80px;
+    width: 100%;
+  }
+  
+  .nav-item + .nav-item {
+    margin-left: 10px;
+  }
+} */
+
+@media screen and (min-width: 768px) {
+  .nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-item {
+    min-width: 80px;
+  }
+
+  .nav-logo {
+    grid-area: logo;
+    margin-right: 90px;
+  }
+
+  .highlights {
+    grid-template-areas: "primary secondary"
+    "primary tertiary";
+    grid-template-rows: 156px 156px;
+  }
 }

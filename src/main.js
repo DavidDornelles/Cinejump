@@ -3,6 +3,8 @@ import './styles.css';
 import WhiteLogo from './assets/Logo-white.svg';
 import SearchIcon from './assets/FiSearch.svg';
 import UserIcon from './assets/FaRegUserCircle.svg';
+import FavNot from './assets/BsHeartFill-black.svg';
+import FavYes from './assets/BsHeartFill-red.svg';
 
 class App {
   constructor() {
@@ -28,6 +30,7 @@ class App {
     const popular = this.moviesList.popular
       .map(movie => /*html*/`
         <article class="section-card pr">
+          <button type="button" class="section-button pa"><img src="${FavNot}" /></button>
           <picture>
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="img-responsive" />
           </picture>
@@ -37,6 +40,7 @@ class App {
     const playing = this.moviesList.playing
       .map(movie => /*html*/`
         <article class="section-card pr">
+          <button type="button" class="section-button pa"><img src="${FavNot}" /></button>
           <picture>
             <img src="https://image.tmdb.org/t/p/w500/${movie.poster_path}" class="img-responsive" />
           </picture>

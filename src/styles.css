@@ -1,3 +1,4 @@
+/* global */
 :root {
   --black: #000000;
   --green: #80BCB8;
@@ -19,8 +20,16 @@
 
 .container {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1020px;
   padding: 0 10px;
+}
+
+.img-responsive {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
 }
 
 .pa {
@@ -40,6 +49,11 @@
 
 .bg-green {
   background-color: var(--green);
+}
+
+/* header */
+.header {
+  margin-bottom: 16px;
 }
 
 .navigation {
@@ -72,6 +86,11 @@
   width: 100%;
 }
 
+.nav-logo img {
+  height: 38.45px;
+}
+
+/* banner */
 .highlights {
   display: grid;
   gap: 16px;
@@ -87,14 +106,6 @@
   overflow: hidden;
 }
 
-.highlights div img {
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  width: 100%;
-}
-
 .highlights .primary {
   grid-area: primary;
 }
@@ -107,7 +118,8 @@
   grid-area: tertiary;
 }
 
-.highlights .secondary .infos, .highlights .tertiary .infos {
+.highlights .secondary .infos,
+.highlights .tertiary .infos {
   padding: 8px;
 }
 
@@ -124,29 +136,16 @@
   width: 100%;
 }
 
-.title {}
-.subtitle {}
 .infos-title {
   font-size: 24px;
   line-height: 27.58px;
 }
+
 .infos-text {
   font-size: 16px;
   font-weight: 300;
   line-height: 24px;
 }
-
-/* @media screen and (min-width: 425px) {
-
-  .nav-item {
-    max-width: 80px;
-    width: 100%;
-  }
-  
-  .nav-item + .nav-item {
-    margin-left: 10px;
-  }
-} */
 
 @media screen and (min-width: 768px) {
   .nav-items {
@@ -170,4 +169,39 @@
     "primary tertiary";
     grid-template-rows: 156px 156px;
   }
+}
+
+/* lista */
+.section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  color: var(--pink);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 27.58px;
+  margin-bottom: 16px;
+}
+
+.section-content {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.section-card {
+  border-radius: 10px;
+  height: 253px;
+  max-width: 165px;
+  min-width: 165px;
+  overflow: hidden;
+}
+
+.section-button {
+  background-color: transparent;
+  border: 0;
+  display: block;
+  top: 6px;
+  right: 6px;
 }

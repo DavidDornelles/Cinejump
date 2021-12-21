@@ -1,14 +1,17 @@
 /* global */
 :root {
   --black: #000000;
-  --green: #80BCB8;
-  --pink: #E83F5B;
+  --secondary: #80BCB8;
+  --primary: #E83F5B;
   --white: #FFFFFF;
+  --light: #F9F9F9;
+  --lightInputBackground: #EFEFEF;
+  --lightText: #C0C0C0;
 }
 
 * {
   box-sizing: border-box;
-  color: var(--white);
+  color: var(--lightInputBackground);
   font-family: 'Ubuntu', sans-serif;
   font-weight: 400;
   list-style: none;
@@ -40,15 +43,18 @@
   position: relative;
 }
 
-.bg-pink {
-  background-color: var(--pink);
-  height: 368px;
+.bg-primary {
+  background-color: var(--primary);
   width: 100%;
   z-index: -1;
 }
 
-.bg-green {
-  background-color: var(--green);
+.header .bg-primary {
+  height: 368px;
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
 }
 
 /* header */
@@ -137,14 +143,14 @@
 }
 
 .infos-title {
-  font-size: 24px;
-  line-height: 27.58px;
+  font-size: 16px;
+  line-height: 18.58px;
 }
 
 .infos-text {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 300;
-  line-height: 24px;
+  line-height: 18px;
 }
 
 @media screen and (min-width: 768px) {
@@ -169,6 +175,16 @@
     "primary tertiary";
     grid-template-rows: 156px 156px;
   }
+
+  .infos-title {
+    font-size: 24px;
+    line-height: 27.58px;
+  }
+
+  .infos-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
 }
 
 /* lista */
@@ -176,15 +192,24 @@
   margin-bottom: 32px;
 }
 
+.bg-secondary .section {
+  padding: 16px 10px;
+}
+
 .section-title {
-  color: var(--pink);
+  color: var(--primary);
   font-size: 24px;
   font-weight: 300;
   line-height: 27.58px;
   margin-bottom: 16px;
 }
 
+.bg-secondary .section-title {
+  color: var(--light);
+}
+
 .section-content {
+  color: var(--lightText);
   display: flex;
   gap: 16px;
   overflow-x: auto;
@@ -201,7 +226,47 @@
 .section-button {
   background-color: transparent;
   border: 0;
+  cursor: pointer;
   display: block;
-  top: 6px;
   right: 6px;
+  top: 6px;
+}
+
+/* footer */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 10px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+}
+.footer-list {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16.09px;
+  text-align: center;
+}
+.footer-list-item + li {
+  margin-top: 16px;
+}
+.footer-list a {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-content {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .footer-list {
+    text-align: left;
+  }
 }

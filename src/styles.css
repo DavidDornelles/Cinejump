@@ -222,6 +222,7 @@ iframe[title='YouTube video player'] {
 .section-card {
   border-radius: 10px;
   height: 253px;
+  margin-bottom: 16px;
   max-width: 165px;
   min-width: 165px;
   overflow: hidden;

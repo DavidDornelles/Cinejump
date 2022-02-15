@@ -21,6 +21,10 @@
   text-decoration: none;
 }
 
+iframe[title='YouTube video player'] {
+  margin-bottom: 16px;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1020px;

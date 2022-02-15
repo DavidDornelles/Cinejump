@@ -23,7 +23,7 @@ class App {
 
   async getMovies(category) {
     try {
-      const { results } = await Api.getMoviesByCategory(category);
+      const results = await Api.getMoviesByCategory(category);
       this.moviesList[category] = results;
     } catch (error) {
       console.log(error);
@@ -37,8 +37,8 @@ class App {
       position = document.querySelector(`#${category} .section-content`);
 
       if (category === 'upcoming') {
-        this.getTrailers(this.moviesList[category]);
-        position.innerHTML = this.trailersGallery(this.moviesList.trailers);
+        const trailers = await this.getTrailers(this.moviesList[category]);
+        position.innerHTML = this.trailersGallery(trailers);
       } else {
         position.innerHTML = this.moviesGallery(this.moviesList[category]);
       }
@@ -76,15 +76,18 @@ class App {
     if (!list.length) return '';
 
     try {
-      list.map(async movie => {
-        const { results } = await Api.getTrailerById(movie.id);
-        if (results.length) {
-          this.moviesList.trailers.push(results[0].key);
-        }
+      const trailersId = list.map(async movie => {
+        const trailerId = await Api.getTrailerById(movie.id);
+
+        return trailerId;
       });
+      
+      const trailers = await Promise.all(trailersId);
+
+      return this.moviesList.trailers = trailers;
     } catch (error) {
       console.log(error);
-    };
+    }
   };
 
   bannersGallery(list) {
@@ -136,7 +139,7 @@ class App {
     if (!list.length) return 'Carregando...';
 
     const trailers = list.map(movie => /*html*/`
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/${movie}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/${movie}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     `).join('');
 
     return trailers;

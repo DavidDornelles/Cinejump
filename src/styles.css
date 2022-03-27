@@ -1,0 +1,277 @@
+/* global */
+:root {
+  --black: #000000;
+  --secondary: #80BCB8;
+  --primary: #E83F5B;
+  --white: #FFFFFF;
+  --light: #F9F9F9;
+  --lightInputBackground: #EFEFEF;
+  --lightText: #C0C0C0;
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--lightInputBackground);
+  font-family: 'Ubuntu', sans-serif;
+  font-weight: 400;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  text-decoration: none;
+}
+
+iframe[title='YouTube video player'] {
+  margin-bottom: 16px;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1020px;
+  padding: 0 10px;
+}
+
+.img-responsive {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  width: 100%;
+}
+
+.pa {
+  position: absolute;
+}
+
+.pr {
+  position: relative;
+}
+
+.bg-primary {
+  background-color: var(--primary);
+  width: 100%;
+  z-index: -1;
+}
+
+.header .bg-primary {
+  height: 368px;
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+/* header */
+.header {
+  margin-bottom: 16px;
+}
+
+.navigation {
+  align-items: center;
+  display: flex;
+  height: 100px;
+}
+
+.nav-items {
+  align-items: center;
+  display: grid;
+  grid-template-areas:
+    "logo logo logo logo"
+    "movies series search account";
+  grid-template-columns: auto auto repeat(2, 40px);
+  width: 100%;
+}
+
+.nav-items:first-child {
+  grid-area: movies;
+}
+
+.nav-items:nth-child(2nd) {
+  grid-area: series;
+}
+
+.nav-logo {
+  grid-area: logo;
+  text-align: center;
+  width: 100%;
+}
+
+.nav-logo img {
+  height: 38.45px;
+}
+
+/* banner */
+.highlights {
+  display: grid;
+  gap: 16px;
+  grid-template-areas:
+    "primary"
+    "secondary"
+    "tertiary";
+  grid-template-rows: 328px 156px 156px;
+}
+
+.highlights > div {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.highlights .primary {
+  grid-area: primary;
+}
+
+.highlights .secondary {
+  grid-area: secondary;
+}
+
+.highlights .tertiary {
+  grid-area: tertiary;
+}
+
+.highlights .secondary .infos,
+.highlights .tertiary .infos {
+  padding: 8px;
+}
+
+.highlights .secondary .infos .infos-text,
+.highlights .tertiary .infos .infos-text {
+  font-weight: 400;
+  line-height: 18.38px;
+}
+
+.infos {
+  background-color: rgba(0, 0, 0, .3);
+  padding: 16px;
+  bottom: 0;
+  width: 100%;
+}
+
+.infos-title {
+  font-size: 16px;
+  line-height: 18.58px;
+}
+
+.infos-text {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav-items {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .nav-item {
+    min-width: 80px;
+  }
+
+  .nav-logo {
+    grid-area: logo;
+    margin-right: 90px;
+  }
+
+  .highlights {
+    grid-template-areas: "primary secondary"
+    "primary tertiary";
+    grid-template-rows: 156px 156px;
+  }
+
+  .infos-title {
+    font-size: 24px;
+    line-height: 27.58px;
+  }
+
+  .infos-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+/* lista */
+.section {
+  margin-bottom: 32px;
+}
+
+.bg-secondary .section {
+  padding: 16px 10px;
+}
+
+.section-title {
+  color: var(--primary);
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 27.58px;
+  margin-bottom: 16px;
+}
+
+.bg-secondary .section-title {
+  color: var(--light);
+}
+
+.section-content {
+  color: var(--lightText);
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+}
+
+.section-card {
+  border-radius: 10px;
+  height: 253px;
+  margin-bottom: 16px;
+  max-width: 165px;
+  min-width: 165px;
+  overflow: hidden;
+}
+
+.section-button {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  display: block;
+  right: 6px;
+  top: 6px;
+}
+
+/* footer */
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  padding: 28px 10px;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+}
+.footer-list {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 16.09px;
+  text-align: center;
+}
+.footer-list-item + li {
+  margin-top: 16px;
+}
+.footer-list a {
+  font-size: 14px;
+  font-weight: 300;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-content {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+  }
+  .footer-list {
+    text-align: left;
+  }
+}

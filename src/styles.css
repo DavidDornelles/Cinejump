@@ -1,5 +1,5 @@
 /* global */
-:root {
+/*:root {
   --black: #000000;
   --secondary: #80BCB8;
   --primary: #E83F5B;
@@ -7,9 +7,9 @@
   --light: #F9F9F9;
   --lightInputBackground: #EFEFEF;
   --lightText: #C0C0C0;
-}
+}*/
 
-* {
+/** {
   box-sizing: border-box;
   color: var(--lightInputBackground);
   font-family: 'Ubuntu', sans-serif;
@@ -19,7 +19,7 @@
   padding: 0;
   outline: 0;
   text-decoration: none;
-}
+}*/
 
 iframe[title='YouTube video player'] {
   margin-bottom: 16px;

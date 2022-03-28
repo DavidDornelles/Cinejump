@@ -193,11 +193,12 @@ class App {
           <div class="footer-logo"><img src="${WhiteLogo}" /></div>
           <div class="footer-links">
             <ul class="footer-list">
-            <li class="footer-list-item"><a href="#">Desenvolvido por David Dornelles (após Lucas Grabriel)</a></li>
-            <li class="footer-list-item"><a href="#">Proposta do Projeto</a></li>
-            <li class="footer-list-item"><a href="#">Protótipo Figma</a></li>
-            <li class="footer-list-item"><a href="#">Apresentação ao Comitê</a></li>
-            <li class="footer-list-item"><a href="#">Documentação</a></li>
+              <li class="footer-list-item"><a href="#">Desenvolvido por David Dornelles (após Lucas Grabriel)</a></li>
+              <li class="footer-list-item"><a href="#">Proposta do Projeto</a></li>
+              <li class="footer-list-item"><a href="#">Protótipo Figma</a></li>
+              <li class="footer-list-item"><a href="#">Apresentação ao Comitê</a></li>
+              <li class="footer-list-item"><a href="#">Documentação</a></li>
+            </ul>
           </div>
         </div>
       </footer>

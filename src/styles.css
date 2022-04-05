@@ -31,13 +31,13 @@ iframe[title='YouTube video player'] {
   padding: 0 10px;
 }
 
-.img-responsive {
+/*.img-responsive {
   display: block;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   width: 100%;
-}
+}*/
 
 .pa {
   position: absolute;
@@ -62,17 +62,17 @@ iframe[title='YouTube video player'] {
 }
 
 /* header */
-.header {
+/*.header {
   margin-bottom: 16px;
-}
+}*/
 
-.navigation {
+/*.navigation {
   align-items: center;
   display: flex;
   height: 100px;
-}
+}*/
 
-.nav-items {
+/*.nav-items {
   align-items: center;
   display: grid;
   grid-template-areas:
@@ -88,20 +88,20 @@ iframe[title='YouTube video player'] {
 
 .nav-items:nth-child(2nd) {
   grid-area: series;
-}
+}*/
 
-.nav-logo {
+/*.nav-logo {
   grid-area: logo;
   text-align: center;
   width: 100%;
-}
+}*/
 
-.nav-logo img {
+/*.nav-logo img {
   height: 38.45px;
-}
+}*/
 
 /* banner */
-.highlights {
+/* .highlights {
   display: grid;
   gap: 16px;
   grid-template-areas:
@@ -109,24 +109,24 @@ iframe[title='YouTube video player'] {
     "secondary"
     "tertiary";
   grid-template-rows: 328px 156px 156px;
-}
+} */
 
-.highlights > div {
+/* .highlights > div {
   border-radius: 10px;
   overflow: hidden;
-}
+} */
 
-.highlights .primary {
+/* .highlights .primary {
   grid-area: primary;
-}
+} */
 
-.highlights .secondary {
+/* .highlights .secondary {
   grid-area: secondary;
-}
+} */
 
-.highlights .tertiary {
+/* .highlights .tertiary {
   grid-area: tertiary;
-}
+} */
 
 .highlights .secondary .infos,
 .highlights .tertiary .infos {
@@ -158,37 +158,37 @@ iframe[title='YouTube video player'] {
 }
 
 @media screen and (min-width: 768px) {
-  .nav-items {
+  /*.nav-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
+  }*/
 
-  .nav-item {
+  /*.nav-item {
     min-width: 80px;
-  }
+  }*/
 
-  .nav-logo {
+  /*.nav-logo {
     grid-area: logo;
     margin-right: 90px;
-  }
+  }*/
 
-  .highlights {
+  /* .highlights {
     grid-template-areas: "primary secondary"
     "primary tertiary";
     grid-template-rows: 156px 156px;
-  }
+  } */
 
-  .infos-title {
+  /* .infos-title {
     font-size: 24px;
     line-height: 27.58px;
-  }
+  } */
 
-  .infos-text {
+  /* .infos-text {
     font-size: 16px;
     line-height: 24px;
-  }
+  } */
 }
 
 /* lista */

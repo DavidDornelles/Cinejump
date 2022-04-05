@@ -1,16 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Link } from "react-router-dom";
 
 interface AnchorProps {
-  classes: string;
   source: string;
-  children: string;
+  children: string | any;
 };
 
+const StyledAnchor = styled.a`
+  display: inline-block;
+`;
+
 const Anchor = (props:AnchorProps) => {
-  const { classes, source, children} = props;
+  const { source, children} = props;
   return (
-    <a href={source} className={classes}>{children}</a>
+    <StyledAnchor href={source} className=''>{children}</StyledAnchor>
   );
 };
 

@@ -4,7 +4,7 @@ import {
   FirstBanner,
   SecondBanner,
   ThirdBanner
-} from '../styled/TopRated'
+} from "../styled/StyledTopRated";
 
 const TopRated = (props:any) => {
   return (

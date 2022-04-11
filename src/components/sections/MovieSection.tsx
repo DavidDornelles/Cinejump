@@ -5,16 +5,19 @@ import {
 } from "../globals";
 import MoviePoster from "./MoviePoster";
 import * as DS from "../../css/variables";
+import MovieTrailer from "./MovieTrailer";
 
 interface MovieSectionProps {
   id: string;
   title: string;
+  isTrailer?: boolean;
 }
 
 const MovieSection = (props:MovieSectionProps) => {
   const {
     id,
-    title
+    title,
+    isTrailer = false
   } =props;
   return (
     <Fragment>
@@ -23,7 +26,7 @@ const MovieSection = (props:MovieSectionProps) => {
           hierarchy={'h2'}
           classes={"section-title"}
           style={{
-            color: DS.COLOR_PRIMARY,
+            color: `${isTrailer ? DS.COLOR_LIGHT : DS.COLOR_PRIMARY}`,
             fontSize: '24px',
             fontWeight: '300',
             lineHeight: '27.58px',
@@ -31,7 +34,7 @@ const MovieSection = (props:MovieSectionProps) => {
           }}
         >{title}</Title>
         <div className="section-content">
-          <MoviePoster cover="http://placekitten.com/500/500" />
+          {isTrailer ? <MovieTrailer /> : <MoviePoster cover="http://placekitten.com/500/500" />}
         </div>
       </Section>
     </Fragment>

@@ -39,27 +39,27 @@ iframe[title='YouTube video player'] {
   width: 100%;
 }*/
 
-.pa {
+/*.pa {
   position: absolute;
-}
+}*/
 
-.pr {
+/*.pr {
   position: relative;
-}
+}*/
 
-.bg-primary {
+/*.bg-primary {
   background-color: var(--primary);
   width: 100%;
   z-index: -1;
-}
+}*/
 
-.header .bg-primary {
+/*.header .bg-primary {
   height: 368px;
-}
+}*/
 
-.bg-secondary {
+/*.bg-secondary {
   background-color: var(--secondary);
-}
+}*/
 
 /* header */
 /*.header {
@@ -139,23 +139,23 @@ iframe[title='YouTube video player'] {
   line-height: 18.38px;
 }
 
-.infos {
+/*.infos {
   background-color: rgba(0, 0, 0, .3);
   padding: 16px;
   bottom: 0;
   width: 100%;
-}
+}*/
 
-.infos-title {
+/*.infos-title {
   font-size: 16px;
   line-height: 18.58px;
-}
+}*/
 
-.infos-text {
+/*.infos-text {
   font-size: 12px;
   font-weight: 300;
   line-height: 18px;
-}
+}*/
 
 @media screen and (min-width: 768px) {
   /*.nav-items {

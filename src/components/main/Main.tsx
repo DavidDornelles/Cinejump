@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
-import MovieSection from "../sections/MovieSection";
+import { MovieSection } from "../sections";
+import { StyledMovieTrailerContainer } from "../styled/StyledMovieTrailer";
 
 const Main = (props: any) => {
   return (
@@ -7,13 +8,10 @@ const Main = (props: any) => {
       <main>
         <MovieSection id={'popular'} title={'Populares'} />
         <MovieSection id={'now_playing'} title={'Em Exibição'} />
+        <StyledMovieTrailerContainer>
+          <MovieSection id="upcoming" title={'Trailers'} isTrailer={true} />
+        </StyledMovieTrailerContainer>
         <MovieSection id={'favorites'} title={'Favoritos'} />
-        {/* <div className="bg-secondary">
-          <section id="upcoming" className="section container">
-            <h2 className="section-title">Trailers</h2>
-            <div className="section-content"></div>
-          </section>
-        </div> */}
       </main>
     </Fragment>
   );

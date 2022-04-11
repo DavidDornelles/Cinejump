@@ -27,21 +27,14 @@ const StyledUnorderedList = styled.ul`
 `;
 
 interface ListProps {
-  ordered: boolean;
-  children: any;
+  as?: string;
+  children: any[];
 }
 
 const List = (props:ListProps) => {
-  const { ordered = false, children} = props;
+  const { children } = props;
 
-  return (
-    ordered
-      ? (
-        <ol>{children}</ol>
-      ) : (
-        <StyledUnorderedList>{children}</StyledUnorderedList>
-      )
-  );
+  return <StyledUnorderedList>{children}</StyledUnorderedList>;
 };
 
 export default List;

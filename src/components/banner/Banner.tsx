@@ -1,14 +1,6 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
-import { Image, Paragraph, Title } from "../globals.tsx";
-
-const StyledImage = styled(Image)`
-  display: block;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  width: 100%;
-`;
+import { Image, Paragraph, Title } from "../globals";
 
 const StyledInfos = styled.div`
   background-color: rgba(0, 0, 0, .3);
@@ -18,19 +10,21 @@ const StyledInfos = styled.div`
   width: 100%;
 `;
 
-const StyledParagraph = styled(Paragraph)`
-  font-size: ${props => props.size}px;
-  line-height: ${props => props.height}px;
-`;
-
 const Banner = (props:any) => {
-  const { className } = props;
+  const { hasTitle = false, className } = props;
   return (
     <div className={className}>
-      <StyledImage source="http://placekitten.com/500/500" classes="" alt='' title='' />
+      <Image source="http://placekitten.com/500/500" classes="" alt='' title='' />
       <StyledInfos>
-        <Title hierarchy={3}>'top3[0].title'</Title>
-        <StyledParagraph size={16} height={24}>'top3[0].overview'</StyledParagraph>
+        {hasTitle
+          ? (
+            <Fragment>
+              <Title hierarchy="h3" classes={'header3'} size={'24px'} line={'27.58px'}>{'top3[0].title'}</Title>
+              <Paragraph classes={'paragraph'} size={'16px'} line={'24px'}>{'top3[0].overview'}</Paragraph>
+            </Fragment>
+          ) : (
+            <Paragraph classes={'paragraph'} size={'16px'} line={'24px'}>{'top3[0].overview'}</Paragraph>
+          )}
       </StyledInfos>
     </div>
   );

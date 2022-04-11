@@ -1,22 +1,49 @@
 import React, { Fragment} from "react";
+import {
+  Anchor,
+  Image,
+  List,
+  ListItem
+} from "../globals";
+import {
+  StyledFooter,
+  StyledFooterLogo,
+  StyledFooterContent,
+  StyledFooterListItem,
+  StyledFooterAnchor
+} from "../styled/StyledFooter";
+import FavWhite from "../../assets/Logo-white.svg";
+import * as DS from "../../css/variables";
 
 const Footer = (props: any) => {
   return (
     <Fragment>
-      <footer className="bg-primary">
-        <div className="container footer-content">
-          <div className="footer-logo"><img src="${WhiteLogo}" /></div>
+      <StyledFooter variant={DS.COLOR_PRIMARY}>
+        <StyledFooterContent className="container">
+          <StyledFooterLogo>
+            <Image source={FavWhite} alt='' title='' size={['150px', '40px']} />
+          </StyledFooterLogo>
           <div className="footer-links">
-            <ul className="footer-list">
-              <li className="footer-list-item"><a href="#">Desenvolvido por David Dornelles (após Lucas Grabriel)</a></li>
-              <li className="footer-list-item"><a href="#">Proposta do Projeto</a></li>
-              <li className="footer-list-item"><a href="#">Protótipo Figma</a></li>
-              <li className="footer-list-item"><a href="#">Apresentação ao Comitê</a></li>
-              <li className="footer-list-item"><a href="#">Documentação</a></li>
-            </ul>
+            <List>
+              <StyledFooterListItem>
+                <StyledFooterAnchor source="#">Desenvolvido por David Dornelles (após Lucas Grabriel)</StyledFooterAnchor>
+              </StyledFooterListItem>
+              <StyledFooterListItem>
+                <StyledFooterAnchor source="#">Proposta do Projeto</StyledFooterAnchor>
+              </StyledFooterListItem>
+              <StyledFooterListItem>
+                <StyledFooterAnchor source="#">Protótipo Figma</StyledFooterAnchor>
+              </StyledFooterListItem>
+              <StyledFooterListItem>
+                <StyledFooterAnchor source="#">Apresentação ao Comitê</StyledFooterAnchor>
+              </StyledFooterListItem>
+              <StyledFooterListItem>
+                <StyledFooterAnchor source="#">Documentação</StyledFooterAnchor>
+              </StyledFooterListItem>
+            </List>
           </div>
-        </div>
-      </footer>
+        </StyledFooterContent>
+      </StyledFooter>
     </Fragment>
   );
 };

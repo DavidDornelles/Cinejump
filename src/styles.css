@@ -192,25 +192,25 @@ iframe[title='YouTube video player'] {
 }
 
 /* lista */
-.section {
+/*.section {
   margin-bottom: 32px;
-}
+}*/
 
 .bg-secondary .section {
   padding: 16px 10px;
 }
 
-.section-title {
+/*.section-title {
   color: var(--primary);
   font-size: 24px;
   font-weight: 300;
   line-height: 27.58px;
   margin-bottom: 16px;
-}
+}*/
 
-.bg-secondary .section-title {
+/*.bg-secondary .section-title {
   color: var(--light);
-}
+}*/
 
 .section-content {
   color: var(--lightText);
@@ -219,42 +219,42 @@ iframe[title='YouTube video player'] {
   overflow-x: auto;
 }
 
-.section-card {
+/*.section-card {
   border-radius: 10px;
   height: 253px;
   margin-bottom: 16px;
   max-width: 165px;
   min-width: 165px;
   overflow: hidden;
-}
+}*/
 
-.section-button {
+/*.section-button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
   display: block;
   right: 6px;
   top: 6px;
-}
+}*/
 
 /* footer */
-.footer-content {
+/*.footer-content {
   display: flex;
   flex-direction: column;
   padding: 28px 10px;
-}
-.footer-logo {
+}*/
+/*.footer-logo {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 25px 0;
-}
-.footer-list {
+}*/
+/*.footer-list {
   font-size: 14px;
   font-weight: 300;
   line-height: 16.09px;
   text-align: center;
-}
+}*/
 .footer-list-item + li {
   margin-top: 16px;
 }
@@ -264,14 +264,14 @@ iframe[title='YouTube video player'] {
 }
 
 @media screen and (min-width: 768px) {
-  .footer-content {
+  /*.footer-content {
     display: grid;
     align-items: center;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-  }
-  .footer-list {
+  }*/
+  /*.footer-list {
     text-align: left;
-  }
+  }*/
 }

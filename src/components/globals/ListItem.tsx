@@ -7,6 +7,7 @@ type PropTypeMinWidth = {
 
 interface ListItemProps {
   hSize?: string;
+  className?: string;
   children: any;
 };
 
@@ -19,9 +20,9 @@ const StyledItem = styled.li.attrs((props: PropTypeMinWidth) => ({
 `;
 
 const ListItem = (props:ListItemProps) => {
-  const { hSize = 'unset', children } = props;
+  const { hSize = 'unset', className, children } = props;
 
-  return <StyledItem minWidth={hSize}>{children}</StyledItem>;
+  return <StyledItem className={className} minWidth={hSize}>{children}</StyledItem>;
 };
 
 export default ListItem;

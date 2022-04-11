@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 interface AnchorProps {
   source: string;
-  children: string | any;
+  children: any;
+  className?: string;
 };
 
 const StyledAnchor = styled.a`
@@ -12,9 +13,9 @@ const StyledAnchor = styled.a`
 `;
 
 const Anchor = (props:AnchorProps) => {
-  const { source, children} = props;
+  const { source, className, children} = props;
   return (
-    <StyledAnchor href={source} className=''>{children}</StyledAnchor>
+    <StyledAnchor href={source} className={className}>{children}</StyledAnchor>
   );
 };
 

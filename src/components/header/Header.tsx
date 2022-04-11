@@ -2,15 +2,15 @@ import React, { Fragment } from 'react';
 import {
   Anchor,
   Image,
-  List,
   ListItem
 } from '../globals';
 import TopRated from '../sections/TopRated';
 import {
   StyledHeader,
+  StyledHeaderList,
   StyledBackground,
   StyledItemLogo
-} from '../styled/Header';
+} from '../styled/StyledHeader';
 
 interface HeaderProps {
   menu: string[];
@@ -24,7 +24,7 @@ const Header = (props:HeaderProps) => {
       <StyledHeader >
         <StyledBackground />
         <nav className="navigation container">
-          <List as="ol">
+          <StyledHeaderList>
             <ListItem hSize={'80px'}>
               <Anchor source={'#'}>{menu[0]}</Anchor>
             </ListItem>
@@ -62,7 +62,7 @@ const Header = (props:HeaderProps) => {
                 />
               </Anchor>
             </ListItem>
-          </List>
+          </StyledHeaderList>
         </nav>
         <TopRated />
       </StyledHeader>

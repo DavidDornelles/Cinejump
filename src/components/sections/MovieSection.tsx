@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 import {
   Section,
   Title
@@ -19,6 +20,22 @@ const MovieSection = (props:MovieSectionProps) => {
     title,
     isTrailer = false
   } =props;
+
+  const [movies, setMovies] = useState({});
+
+  useEffect(() => {
+    if (id !== 'favorites' && id !== 'upcoming') {
+      axios
+        .get(`${process.env.REACT_APP_TMDB_URL}${id}${isTrailer ? '/videos' : '' }?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        .then(response => {
+          setMovies(response.data.results);
+        })
+        .catch();
+    }
+  }, [id, isTrailer]);
+  
+  console.log('id | movies -> ', id, movies);
+
   return (
     <Fragment>
       <Section id={id} classes={'container'} >

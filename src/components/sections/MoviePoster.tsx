@@ -4,9 +4,7 @@ import {
   Image
 } from "../globals";
 import CtaFavorite from "../ctas/CtaFavorite";
-
 import FavNot from '../../assets/BsHeartFill-black.svg';
-
 
 const styles = {
   borderRadius: '10px',
@@ -19,20 +17,21 @@ const styles = {
 } as React.CSSProperties;
 
 const MoviePoster = (props:any) => {
-  const {
-    cover,
-    alt,
-    title
-  } = props;
+  const { movies } = props;
+  
+  // console.log('movies -> ', movies);
+
   return (
-    <Article styles={styles}>
+    movies && movies.map((movie: { backdrop_path: string; id: number; title: string; }) => (
+    <Article key={movie.id} styles={styles}>
       <CtaFavorite type="button" id="movieId">
-        <Image source={FavNot} alt={alt} title={title} />
+        <Image source={FavNot} alt='' title='' />
       </CtaFavorite>
       <picture>
-        <Image source={cover} alt='' title='' />
+        <Image source={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt={movie.title} title={movie.title} />
       </picture>
     </Article>
+    ))
   );
 };
 

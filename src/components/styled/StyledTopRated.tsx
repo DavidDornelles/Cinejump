@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Banner from "../banner/Banner";
+import { TypedTopRated } from "../typed/TypedTopRated";
 
 export const Section = styled.section`
   display: grid;
@@ -23,22 +23,9 @@ export const Section = styled.section`
   }
 `;
 
-export const FirstBanner = styled(Banner)`
+export const StyledTopRated = styled(TypedTopRated)`
   border-radius: 10px;
-  grid-area: ${props => props.position};
-  overflow: hidden;
-  position: relative;
-`;
-export const SecondBanner = styled(Banner)`
-  border-radius: 10px;
-  grid-area: ${props => props.position};
-  overflow: hidden;
-  position: relative;
-`;
-
-export const ThirdBanner = styled(Banner)`
-  border-radius: 10px;
-  grid-area: ${props => props.position};
+  grid-area: ${props => props.area};
   overflow: hidden;
   position: relative;
 `;

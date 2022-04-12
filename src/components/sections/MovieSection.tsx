@@ -1,12 +1,13 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import MoviePoster from "./MoviePoster";
+import MovieTrailer from "./MovieTrailer";
 import {
   Section,
   Title
 } from "../globals";
-import MoviePoster from "./MoviePoster";
+import { StyledSectionContainer } from "../styled/StyledSectionContainer";
 import * as DS from "../../css/variables";
-import MovieTrailer from "./MovieTrailer";
 
 interface MovieSectionProps {
   id: string;
@@ -21,20 +22,19 @@ const MovieSection = (props:MovieSectionProps) => {
     isTrailer = false
   } =props;
 
-  const [movies, setMovies] = useState({});
+  const [movies, setMovies]:any[] = useState([]);
 
   useEffect(() => {
     if (id !== 'favorites' && id !== 'upcoming') {
       axios
         .get(`${process.env.REACT_APP_TMDB_URL}${id}${isTrailer ? '/videos' : '' }?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
         .then(response => {
-          setMovies(response.data.results);
+          const { data: { results } } = response;
+          setMovies([...results]);
         })
         .catch();
     }
   }, [id, isTrailer]);
-  
-  console.log('id | movies -> ', id, movies);
 
   return (
     <Fragment>
@@ -50,9 +50,9 @@ const MovieSection = (props:MovieSectionProps) => {
             marginBottom: '16px',
           }}
         >{title}</Title>
-        <div className="section-content">
-          {isTrailer ? <MovieTrailer /> : <MoviePoster cover="http://placekitten.com/500/500" />}
-        </div>
+        <StyledSectionContainer>
+          {isTrailer ? <MovieTrailer /> : <MoviePoster movies={movies} />}
+        </StyledSectionContainer>
       </Section>
     </Fragment>
   );

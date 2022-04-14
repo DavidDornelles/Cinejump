@@ -17,14 +17,14 @@ const styles = {
 } as React.CSSProperties;
 
 const MoviePoster = (props:any) => {
-  const { movies } = props;
+  const { movies, ctrlFavorites } = props;
   
   // console.log('movies -> ', movies);
 
   return (
     movies && movies.map((movie: { backdrop_path: string; id: number; title: string; }) => (
     <Article key={movie.id} styles={styles}>
-      <CtaFavorite type="button" id="movieId">
+      <CtaFavorite type="button" id={movie.id} ctrlFavorites={ctrlFavorites}>
         <Image source={FavNot} alt='' title='' />
       </CtaFavorite>
       <picture>

@@ -13,13 +13,15 @@ interface MovieSectionProps {
   id: string;
   title: string;
   isTrailer?: boolean;
+  ctrlFavorites?: Function;
 }
 
 const MovieSection = (props:MovieSectionProps) => {
   const {
     id,
     title,
-    isTrailer = false
+    isTrailer = false,
+    ctrlFavorites
   } =props;
 
   const [movies, setMovies]:any[] = useState([]);
@@ -51,7 +53,7 @@ const MovieSection = (props:MovieSectionProps) => {
           }}
         >{title}</Title>
         <StyledSectionContainer>
-          {isTrailer ? <MovieTrailer /> : <MoviePoster movies={movies} />}
+          {isTrailer ? <MovieTrailer /> : <MoviePoster movies={movies} ctrlFavorites={ctrlFavorites} />}
         </StyledSectionContainer>
       </Section>
     </Fragment>

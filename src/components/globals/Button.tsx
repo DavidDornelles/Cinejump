@@ -6,6 +6,7 @@ interface ButtonProps {
   id?: string;
   className?: string;
   children: any;
+  action: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 const Button = (props:ButtonProps)=> {
@@ -13,10 +14,11 @@ const Button = (props:ButtonProps)=> {
     type,
     id,
     className,
-    children
+    children,
+    action,
   } = props;
   return (
-    <StyledButton type={type} id={id} className={className}>{children}</StyledButton>
+    <StyledButton type={type} id={id} className={className} onClick={action}>{children}</StyledButton>
   );
 };
 

@@ -18,17 +18,15 @@ const styles = {
 
 const MoviePoster = (props:any) => {
   const { movies, ctrlFavorites } = props;
-  
-  // console.log('movies -> ', movies);
 
   return (
-    movies && movies.map((movie: { backdrop_path: string; id: number; title: string; }) => (
+    movies && movies.map((movie: { poster_path: string; id: number; title: string; }) => (
     <Article key={movie.id} styles={styles}>
       <CtaFavorite type="button" id={movie.id} ctrlFavorites={ctrlFavorites}>
         <Image source={FavNot} alt='' title='' />
       </CtaFavorite>
       <picture>
-        <Image source={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`} alt={movie.title} title={movie.title} />
+        <Image source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} title={movie.title} />
       </picture>
     </Article>
     ))

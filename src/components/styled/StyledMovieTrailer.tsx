@@ -7,5 +7,9 @@ export const StyledMovieTrailerContainer = styled.div`
 
   section {
     padding: 16px 10px;
+
+    div {
+      padding-bottom: 16px;
+    }
   }
 `;

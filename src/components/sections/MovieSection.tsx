@@ -25,18 +25,38 @@ const MovieSection = (props:MovieSectionProps) => {
   } =props;
 
   const [movies, setMovies]:any[] = useState([]);
+  const [trailers, setTrailers]:any[] = useState([]);
 
   useEffect(() => {
-    if (id !== 'favorites' && id !== 'upcoming') {
+    if (id !== 'favorites') {
       axios
-        .get(`${process.env.REACT_APP_TMDB_URL}${id}${isTrailer ? '/videos' : '' }?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
+        .get(`${process.env.REACT_APP_TMDB_URL}${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
         .then(response => {
           const { data: { results } } = response;
-          setMovies([...results]);
+          setMovies(isTrailer ? results.map((result: { id: number; }) => result.id) : [...results]);
         })
         .catch();
     }
   }, [id, isTrailer]);
+
+  useEffect(() => {
+    if(id !== 'upcoming') return;
+    axios.all(
+      movies.map((trailer: number) => axios.get(`${process.env.REACT_APP_TMDB_URL}${trailer}/videos?api_key=${process.env.REACT_APP_TMDB_API_KEY}`))
+    ).then(
+      (responses: any[]) => {
+        const trailers = responses.map(
+        response => {
+          if(!!response.data.results.length) {
+            const { data: { results }} = response;
+            return results[0].key;
+          }
+        }
+      );
+      setTrailers(trailers);
+    }
+    ).catch();
+  }, [id, movies]);
 
   return (
     <Fragment>
@@ -53,7 +73,10 @@ const MovieSection = (props:MovieSectionProps) => {
           }}
         >{title}</Title>
         <StyledSectionContainer>
-          {isTrailer ? <MovieTrailer /> : <MoviePoster movies={movies} ctrlFavorites={ctrlFavorites} />}
+          {isTrailer
+            ? <MovieTrailer trailers={trailers} />
+            : <MoviePoster movies={movies} ctrlFavorites={ctrlFavorites} />
+          }
         </StyledSectionContainer>
       </Section>
     </Fragment>

@@ -1,9 +1,7 @@
 import React, { Fragment} from "react";
 import {
-  Anchor,
   Image,
   List,
-  ListItem
 } from "../globals";
 import {
   StyledFooter,

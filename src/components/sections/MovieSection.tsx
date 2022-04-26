@@ -13,7 +13,9 @@ interface MovieSectionProps {
   id: string;
   title: string;
   isTrailer?: boolean;
-  ctrlFavorites?: Function;
+  areFavorites?: boolean;
+  favorites?: any[];
+  toggleFavorite?: Function;
 }
 
 const MovieSection = (props:MovieSectionProps) => {
@@ -21,7 +23,9 @@ const MovieSection = (props:MovieSectionProps) => {
     id,
     title,
     isTrailer = false,
-    ctrlFavorites
+    areFavorites = false,
+    favorites,
+    toggleFavorite
   } =props;
 
   const [movies, setMovies]:any[] = useState([]);
@@ -47,10 +51,12 @@ const MovieSection = (props:MovieSectionProps) => {
       (responses: any[]) => {
         const trailers = responses.map(
         response => {
+          let movieKey;
           if(!!response.data.results.length) {
             const { data: { results }} = response;
-            return results[0].key;
+            movieKey = results[0].key;
           }
+          return movieKey;
         }
       );
       setTrailers(trailers);
@@ -75,7 +81,7 @@ const MovieSection = (props:MovieSectionProps) => {
         <StyledSectionContainer>
           {isTrailer
             ? <MovieTrailer trailers={trailers} />
-            : <MoviePoster movies={movies} ctrlFavorites={ctrlFavorites} />
+            : <MoviePoster movies={areFavorites ? favorites : movies} favorites={favorites} areFavorites={areFavorites} toggleFavorite={toggleFavorite} />
           }
         </StyledSectionContainer>
       </Section>

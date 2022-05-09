@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import { getMovies } from "services";
 import Banner from "../banner/Banner";
 import {
   Section
@@ -11,13 +11,12 @@ const TopRated = (props:any) => {
   const [topRated, setTopRated]:any[] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`${process.env.REACT_APP_TMDB_URL}${TOP_RATED}?api_key=${process.env.REACT_APP_TMDB_API_KEY}`)
-      .then(response => {
-        const { data: { results }} = response;
+    getMovies(TOP_RATED)
+      .then(data => {
+        const { results } = data;
         setTopRated([...results])
-      });
-  
+      })
+      .catch(error => error);  
   }, []);
   
 

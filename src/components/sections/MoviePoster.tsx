@@ -28,7 +28,7 @@ const MoviePoster = (props:any) => {
         movies && movies.map((movie: { poster_path: string; id: number; title: string; }) => (
         <Article key={movie.id} styles={styles}>
           <CtaFavorite type="button" id={movie.id} toggleFavorite={toggleFavorite}>
-            <Image source={favorites?.find((favorite: { id: number; }) => favorite.id === movie.id) ? FavYes : FavNot} alt='' title='' />
+            <Image source={favorites?.find((favorite: number) => favorite === movie.id) ? FavYes : FavNot} alt='' title='' />
           </CtaFavorite>
           <picture>
             <Image source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} title={movie.title} />

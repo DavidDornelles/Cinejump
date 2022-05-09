@@ -7,6 +7,7 @@ interface ButtonProps {
   className?: string;
   children: any;
   action: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  style?: React.CSSProperties;
 }
 
 const Button = (props:ButtonProps)=> {
@@ -16,9 +17,10 @@ const Button = (props:ButtonProps)=> {
     className,
     children,
     action,
+    ...rest
   } = props;
   return (
-    <StyledButton type={type} id={id} className={className} onClick={action}>{children}</StyledButton>
+    <StyledButton type={type} id={id} className={className} onClick={action} {...rest}>{children}</StyledButton>
   );
 };
 

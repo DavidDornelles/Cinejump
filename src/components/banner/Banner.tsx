@@ -35,10 +35,10 @@ const Banner = (props:BannerProps) => {
           ? (
             <Fragment>
               <Title hierarchy="h3" classes={'header3'} size={'24px'} line={'27.58px'}>{movies.title}</Title>
-              <Paragraph classes={'paragraph'} size={'16px'} line={'24px'}>{movies.overview}</Paragraph>
+              <Paragraph classes={'paragraph'} size={['16px', '16px']} line={['', '24px']}>{movies.overview}</Paragraph>
             </Fragment>
           ) : (
-            <Paragraph classes={'paragraph'} size={'16px'} line={'18.38px'}>{movies.title}</Paragraph>
+            <Paragraph classes={'paragraph'} size={['16px', '16px']} line={['', '18.38px']}>{movies.title}</Paragraph>
           )}
       </StyledInfos>
     </StyledTopRated>

@@ -65,8 +65,21 @@ const MovieSection = (props:MovieSectionProps) => {
         >{title}</Title>
         <StyledSectionContainer>
           {isTrailer
-            ? <MovieTrailer movies={movies} />
-            : <MoviePoster movies={movies} favorites={favorites} areFavorites={areFavorites} toggleFavorite={toggleFavorite} />
+            ? (
+              <MovieTrailer movies={movies} />
+            ) : (
+              !favorites.length && areFavorites
+              ? (
+                'Nenhum filme adicionado.'
+              ) : (
+                <MoviePoster
+                  isLoading={isLoading}
+                  movies={movies}
+                  favorites={favorites}
+                  toggleFavorite={toggleFavorite}
+                />
+              )
+            )
           }
         </StyledSectionContainer>
       </Section>

@@ -2,6 +2,12 @@ import styled from 'styled-components';
 import { List } from '../globals';
 import * as DS from '../../css/variables';
 
+type BrackgroundTypes = {
+  customBg: string;
+  customHeight: string;
+  pageName: string;
+}
+
 export const StyledHeader = styled.header`
   margin-bottom: 16px;
 `;
@@ -40,9 +46,18 @@ export const StyledItemLogo = styled.li`
   }
 `;
 
-export const StyledBackground = styled.div`
+export const StyledBackground = styled.div.attrs((props:BrackgroundTypes) => ({
+  customBg: props.customBg,
+  customHeight: props.customHeight,
+  pageName: props.pageName,
+}))<BrackgroundTypes>`
   background-color: ${DS.COLOR_PRIMARY};
-  height: 368px;
+  ${props => !!props.pageName && `
+    background-image: linear-gradient(rgba(232, 63, 91, 0.5),rgba(232, 63, 91, 0.5)), url(${props.customBg});
+  `}
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: ${props => !!props.pageName ? props.customHeight : '318px'};
   position: absolute;
   width: 100%;
   z-index: -1;

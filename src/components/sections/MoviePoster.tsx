@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Article,
   Image,
@@ -10,30 +11,26 @@ import FavYes from '../../assets/BsHeartFill-red.svg';
 
 const styles = {
   borderRadius: '10px',
-  height: '253px',
-  marginBottom: '16px',
-  maxWidth: '165px',
-  minWidth: '165px',
   overflow: 'hidden',
   position: "relative",
 } as React.CSSProperties;
 
-const MoviePoster = (props:any) => {
-  const { isLoading, movies, favorites, toggleFavorite } = props;
+const MoviePoster = (props: { style: any; isLoading: boolean; movie: any; favorites: any; toggleFavorite: any; }) => {
+  const { style, isLoading, movie, favorites, toggleFavorite } = props;
+  const { poster_path, id, title } = movie;
 
   return isLoading
     ? <Loading height={'50px'} width={'50px'} color={'gray'} />
-    : movies && movies.map(
-      (movie: { poster_path: string; id: number; title: string; }) => 
-        <Article key={movie.id} styles={styles}>
-          <CtaFavorite type="button" id={movie.id} toggleFavorite={toggleFavorite}>
-            <Image source={favorites?.find((favorite: number) => favorite === movie.id) ? FavYes : FavNot} alt='' title='' />
-          </CtaFavorite>
+    : <Article key={id} styles={{ ...styles, ...style }}>
+        <CtaFavorite type="button" id={id} toggleFavorite={toggleFavorite}>
+          <Image source={favorites?.find((favorite: number) => favorite === id) ? FavYes : FavNot} alt={title} title={title} />
+        </CtaFavorite>
+        <Link key={id} to={`/movie/${id}`}>
           <picture>
-            <Image source={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} title={movie.title} />
+            <Image source={`https://image.tmdb.org/t/p/w500${poster_path}`} alt={title} title={title} />
           </picture>
-        </Article>
-    )
+        </Link>
+      </Article>
 };
 
 export default MoviePoster;

@@ -11,6 +11,7 @@ export const Section = styled.section`
   grid-template-rows: 328px 156px 156px;
 
   margin: 0 auto;
+  margin-bottom: 16px;
   max-width: 1020px;
   padding: 0 10px;
 
@@ -20,6 +21,7 @@ export const Section = styled.section`
       "first third";
     grid-template-columns: 2fr 1fr;
     grid-template-rows: 156px 156px;
+    margin-bottom: 32px;
   }
 `;
 

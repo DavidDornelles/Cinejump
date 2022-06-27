@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Anchor,
   Image,
   ListItem
 } from '../globals';
-import TopRated from '../sections/TopRated';
 import {
   StyledHeader,
   StyledHeaderList,
@@ -13,16 +13,23 @@ import {
 } from '../styled/StyledHeader';
 
 interface HeaderProps {
+  customHeight: string;
   menu: string[];
+  pageName?: string;
+  postal?: string;
 }
 
 const Header = (props:HeaderProps) => {
-  const { menu } = props;
+  const { customHeight, menu, pageName, postal } = props;
 
   return (
     <Fragment>
       <StyledHeader >
-        <StyledBackground />
+        <StyledBackground
+          customBg={`https://image.tmdb.org/t/p/w500${postal}`}
+          customHeight={customHeight}
+          pageName={pageName}
+        />
         <nav className="navigation container">
           <StyledHeaderList>
             <ListItem hSize={'80px'}>
@@ -32,13 +39,15 @@ const Header = (props:HeaderProps) => {
               <Anchor source={'#'}>{menu[1]}</Anchor>
             </ListItem>
             <StyledItemLogo>
-              <Image
-                source={menu[2]}
-                alt={menu[2]}
-                title={menu[2]}
-                classes={''}
-                size={['auto', '38.45px']}
-              />
+              <Link to={'/'}>
+                <Image
+                  source={menu[2]}
+                  alt={menu[2]}
+                  title={menu[2]}
+                  classes={''}
+                  size={['auto', '38.45px']}
+                />
+              </Link>
             </StyledItemLogo>
             <ListItem hSize={'40px'}>
               <Anchor source={'#'}>
@@ -64,7 +73,6 @@ const Header = (props:HeaderProps) => {
             </ListItem>
           </StyledHeaderList>
         </nav>
-        <TopRated />
       </StyledHeader>
     </Fragment>
   );

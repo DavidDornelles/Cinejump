@@ -6,17 +6,19 @@ const MovieTrailer = (props: { movies:string[] }) => {
   const [trailers, setTrailers]:any[] = useState([]);
 
   useEffect(() => {
-    getMovieTrailers(movies)
-      .then(data => {
-        const [...results] = data;
-        setTrailers([...results])
-      })
-      .catch(error => error);
+    try {
+      getMovieTrailers(movies)
+        .then(trailers => {
+          setTrailers(trailers);
+        })
+    } catch (error) {
+      console.log(error);
+    }
   }, [movies]);
 
   return (
     <>
-      {trailers && trailers.map((trailer: { key: string, name: string }, index:number) =>  (
+      {!!trailers && trailers.map((trailer: { key: string, name: string }, index:number) =>  (
         <iframe key={index} src={`https://www.youtube.com/embed/${trailer.key}`}
           title={`${trailer.name}`}
           frameBorder="0"

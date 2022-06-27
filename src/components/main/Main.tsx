@@ -2,6 +2,13 @@ import React, { Fragment, useState } from "react";
 import { MovieSection } from "../sections";
 import { StyledMovieTrailerContainer } from "../styled/StyledMovieTrailer";
 
+const styles = {
+  height: '253px',
+  marginBottom: '16px',
+  maxWidth: '165px',
+  minWidth: '165px',
+} as React.CSSProperties;
+
 const Main = (props: any) => {
   const [favorites, setFavorites]:any[] = useState([]);
 
@@ -21,12 +28,14 @@ const Main = (props: any) => {
       <main>
         <MovieSection
           id={'popular'}
+          style={styles}
           title={'Populares'}
           favorites={favorites}
           toggleFavorite={toggleFavorite}
         />
         <MovieSection
           id={'now_playing'}
+          style={styles}
           title={'Em Exibição'}
           favorites={favorites}
           toggleFavorite={toggleFavorite}
@@ -36,6 +45,7 @@ const Main = (props: any) => {
         </StyledMovieTrailerContainer>
         <MovieSection
           id={'favorites'}
+          style={styles}
           title={'Favoritos'}
           areFavorites={true}
           favorites={favorites}

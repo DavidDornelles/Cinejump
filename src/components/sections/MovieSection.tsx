@@ -11,6 +11,7 @@ import * as DS from "../../css/variables";
 
 interface MovieSectionProps {
   id: string;
+  style?:any;
   title: string;
   isTrailer?: boolean;
   areFavorites?: boolean;
@@ -21,6 +22,7 @@ interface MovieSectionProps {
 const MovieSection = (props:MovieSectionProps) => {
   const {
     id,
+    style,
     title,
     isTrailer = false,
     areFavorites = false,
@@ -35,15 +37,20 @@ const MovieSection = (props:MovieSectionProps) => {
     if (id !== 'favorites') {
       getMovies(id)
         .then(data => {
-          const { results, status} = data;
+          const { results } = data;
           setMovies([...results]);
-          setIsLoading(!!status);
+          setIsLoading(false);
         });
-    } else {
+    }
+  }, [id]);
+
+  useEffect(() => {
+    if (id === 'favorites') {
       getFavoriteMovie(favorites)
         .then(data => {
           const results = data;
           setMovies([...results]);
+          setIsLoading(false);
         })
         .catch(error => error);
     }
@@ -72,12 +79,13 @@ const MovieSection = (props:MovieSectionProps) => {
               ? (
                 'Nenhum filme adicionado.'
               ) : (
-                <MoviePoster
+                movies && movies.map((movie: any) => (<MoviePoster
+                  style={style}
                   isLoading={isLoading}
-                  movies={movies}
+                  movie={movie}
                   favorites={favorites}
                   toggleFavorite={toggleFavorite}
-                />
+                />))
               )
             )
           }

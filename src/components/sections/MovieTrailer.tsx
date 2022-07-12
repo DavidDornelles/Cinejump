@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { getMovieTrailers } from "services";
 
-const MovieTrailer = (props: { movies:string[] }) => {
-  const { movies } = props;
+const MovieTrailer = (props: { movies:any[], isMoviePage: boolean }) => {
+  const { movies, isMoviePage = false } = props;
   const [trailers, setTrailers]:any[] = useState([]);
 
   useEffect(() => {
     try {
       getMovieTrailers(movies)
-        .then(trailers => {
-          setTrailers(trailers);
-        })
+        .then(trailers => setTrailers(isMoviePage ? movies: trailers))
     } catch (error) {
       console.log(error);
     }
-  }, [movies]);
+  }, [isMoviePage, movies]);
 
   return (
     <>

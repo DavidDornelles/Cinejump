@@ -40,7 +40,6 @@ async function getMovieById(id:string|undefined) {
     .get(`/${id}?api_key=${process.env.REACT_APP_TMDB_API_KEY}&language=pt-BR&page=1&region=BR&append_to_response=videos,images,recommendations,keywords,credits`)
     .then(response => response.data)
     .catch(error => error);
-  console.log('api > movie -> ', movie);
   return movie;
 };
 

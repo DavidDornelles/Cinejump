@@ -41,7 +41,7 @@ const Main = (props: any) => {
           toggleFavorite={toggleFavorite}
         />
         <StyledMovieTrailerContainer>
-          <MovieSection id="upcoming" title={'Trailers'} isTrailer={true} favorites={[]} />
+          <MovieSection id="upcoming" title={'Trailers'} isTrailer={true} favorites={favorites} />
         </StyledMovieTrailerContainer>
         <MovieSection
           id={'favorites'}

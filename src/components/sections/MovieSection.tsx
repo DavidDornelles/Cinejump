@@ -15,7 +15,9 @@ interface MovieSectionProps {
   title: string;
   isTrailer?: boolean;
   areFavorites?: boolean;
-  favorites: number[];
+  recommendations?: any[];
+  trailers?: any[];
+  favorites?: number[];
   toggleFavorite?: Function;
 }
 
@@ -26,26 +28,17 @@ const MovieSection = (props:MovieSectionProps) => {
     title,
     isTrailer = false,
     areFavorites = false,
+    recommendations,
     favorites,
+    trailers,
     toggleFavorite
-  } =props;
+  } = props;
 
   const [isLoading, setIsLoading] = useState(true);
   const [movies, setMovies]:any[] = useState([]);
 
   useEffect(() => {
-    if (id !== 'favorites') {
-      getMovies(id)
-        .then(data => {
-          const { results } = data;
-          setMovies([...results]);
-          setIsLoading(false);
-        });
-    }
-  }, [id]);
-
-  useEffect(() => {
-    if (id === 'favorites') {
+    if (id === 'favorites' && !!favorites) {
       getFavoriteMovie(favorites)
         .then(data => {
           const results = data;
@@ -54,7 +47,31 @@ const MovieSection = (props:MovieSectionProps) => {
         })
         .catch(error => error);
     }
-  }, [favorites, id]);
+  }, [id, favorites]);
+
+  useEffect(() => {
+    if (id === 'recommendations') {
+      setMovies(recommendations);
+      setIsLoading(false);
+    }
+  }, [id, recommendations]);
+
+  useEffect(() => {
+    if (id === 'movie-trailers') {
+      setMovies(trailers);
+    }
+  }, [id, trailers]);
+
+  useEffect(() => {
+    if (id !== 'favorites' && id !== 'movie-trailers' && id !== 'recommendations') {
+      getMovies(id)
+        .then(data => {
+          const { results } = data;
+          setMovies([...results]);
+          setIsLoading(false);
+        });
+    }
+  }, [id]);
 
   return (
     <Fragment>
@@ -73,20 +90,22 @@ const MovieSection = (props:MovieSectionProps) => {
         <StyledSectionContainer>
           {isTrailer
             ? (
-              <MovieTrailer movies={movies} />
+              !!movies && <MovieTrailer isMoviePage={false} movies={movies} />
             ) : (
-              !favorites.length && areFavorites
+              !!favorites && !favorites.length && areFavorites
               ? (
                 'Nenhum filme adicionado.'
-              ) : (
-                movies && movies.map((movie: any) => (<MoviePoster
+              )
+              : (!!movies && movies.map((movie: any, index: number) => (
+                <MoviePoster
+                  key={index}
                   style={style}
                   isLoading={isLoading}
                   movie={movie}
                   favorites={favorites}
                   toggleFavorite={toggleFavorite}
-                />))
-              )
+                />
+              )))
             )
           }
         </StyledSectionContainer>

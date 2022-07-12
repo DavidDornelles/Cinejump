@@ -1,5 +1,5 @@
 /* global */
-:root {
+/*:root {
   --black: #000000;
   --secondary: #80BCB8;
   --primary: #E83F5B;
@@ -7,9 +7,9 @@
   --light: #F9F9F9;
   --lightInputBackground: #EFEFEF;
   --lightText: #C0C0C0;
-}
+}*/
 
-* {
+/** {
   box-sizing: border-box;
   color: var(--lightInputBackground);
   font-family: 'Ubuntu', sans-serif;
@@ -19,7 +19,7 @@
   padding: 0;
   outline: 0;
   text-decoration: none;
-}
+}*/
 
 iframe[title='YouTube video player'] {
   margin-bottom: 16px;
@@ -31,48 +31,48 @@ iframe[title='YouTube video player'] {
   padding: 0 10px;
 }
 
-.img-responsive {
+/*.img-responsive {
   display: block;
   height: 100%;
   object-fit: cover;
   object-position: center center;
   width: 100%;
-}
+}*/
 
-.pa {
+/*.pa {
   position: absolute;
-}
+}*/
 
-.pr {
+/*.pr {
   position: relative;
-}
+}*/
 
-.bg-primary {
+/*.bg-primary {
   background-color: var(--primary);
   width: 100%;
   z-index: -1;
-}
+}*/
 
-.header .bg-primary {
+/*.header .bg-primary {
   height: 368px;
-}
+}*/
 
-.bg-secondary {
+/*.bg-secondary {
   background-color: var(--secondary);
-}
+}*/
 
 /* header */
-.header {
+/*.header {
   margin-bottom: 16px;
-}
+}*/
 
-.navigation {
+/*.navigation {
   align-items: center;
   display: flex;
   height: 100px;
-}
+}*/
 
-.nav-items {
+/*.nav-items {
   align-items: center;
   display: grid;
   grid-template-areas:
@@ -88,20 +88,20 @@ iframe[title='YouTube video player'] {
 
 .nav-items:nth-child(2nd) {
   grid-area: series;
-}
+}*/
 
-.nav-logo {
+/*.nav-logo {
   grid-area: logo;
   text-align: center;
   width: 100%;
-}
+}*/
 
-.nav-logo img {
+/*.nav-logo img {
   height: 38.45px;
-}
+}*/
 
 /* banner */
-.highlights {
+/* .highlights {
   display: grid;
   gap: 16px;
   grid-template-areas:
@@ -109,24 +109,24 @@ iframe[title='YouTube video player'] {
     "secondary"
     "tertiary";
   grid-template-rows: 328px 156px 156px;
-}
+} */
 
-.highlights > div {
+/* .highlights > div {
   border-radius: 10px;
   overflow: hidden;
-}
+} */
 
-.highlights .primary {
+/* .highlights .primary {
   grid-area: primary;
-}
+} */
 
-.highlights .secondary {
+/* .highlights .secondary {
   grid-area: secondary;
-}
+} */
 
-.highlights .tertiary {
+/* .highlights .tertiary {
   grid-area: tertiary;
-}
+} */
 
 .highlights .secondary .infos,
 .highlights .tertiary .infos {
@@ -139,122 +139,122 @@ iframe[title='YouTube video player'] {
   line-height: 18.38px;
 }
 
-.infos {
+/*.infos {
   background-color: rgba(0, 0, 0, .3);
   padding: 16px;
   bottom: 0;
   width: 100%;
-}
+}*/
 
-.infos-title {
+/*.infos-title {
   font-size: 16px;
   line-height: 18.58px;
-}
+}*/
 
-.infos-text {
+/*.infos-text {
   font-size: 12px;
   font-weight: 300;
   line-height: 18px;
-}
+}*/
 
 @media screen and (min-width: 768px) {
-  .nav-items {
+  /*.nav-items {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 100%;
-  }
+  }*/
 
-  .nav-item {
+  /*.nav-item {
     min-width: 80px;
-  }
+  }*/
 
-  .nav-logo {
+  /*.nav-logo {
     grid-area: logo;
     margin-right: 90px;
-  }
+  }*/
 
-  .highlights {
+  /* .highlights {
     grid-template-areas: "primary secondary"
     "primary tertiary";
     grid-template-rows: 156px 156px;
-  }
+  } */
 
-  .infos-title {
+  /* .infos-title {
     font-size: 24px;
     line-height: 27.58px;
-  }
+  } */
 
-  .infos-text {
+  /* .infos-text {
     font-size: 16px;
     line-height: 24px;
-  }
+  } */
 }
 
 /* lista */
-.section {
+/*.section {
   margin-bottom: 32px;
-}
+}*/
 
-.bg-secondary .section {
+/*.bg-secondary .section {
   padding: 16px 10px;
-}
+}*/
 
-.section-title {
+/*.section-title {
   color: var(--primary);
   font-size: 24px;
   font-weight: 300;
   line-height: 27.58px;
   margin-bottom: 16px;
-}
+}*/
 
-.bg-secondary .section-title {
+/*.bg-secondary .section-title {
   color: var(--light);
-}
+}*/
 
-.section-content {
+/*.section-content {
   color: var(--lightText);
   display: flex;
   gap: 16px;
   overflow-x: auto;
-}
+}/*
 
-.section-card {
+/*.section-card {
   border-radius: 10px;
   height: 253px;
   margin-bottom: 16px;
   max-width: 165px;
   min-width: 165px;
   overflow: hidden;
-}
+}*/
 
-.section-button {
+/*.section-button {
   background-color: transparent;
   border: 0;
   cursor: pointer;
   display: block;
   right: 6px;
   top: 6px;
-}
+}*/
 
 /* footer */
-.footer-content {
+/*.footer-content {
   display: flex;
   flex-direction: column;
   padding: 28px 10px;
-}
-.footer-logo {
+}*/
+/*.footer-logo {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 25px 0;
-}
-.footer-list {
+}*/
+/*.footer-list {
   font-size: 14px;
   font-weight: 300;
   line-height: 16.09px;
   text-align: center;
-}
+}*/
 .footer-list-item + li {
   margin-top: 16px;
 }
@@ -264,14 +264,14 @@ iframe[title='YouTube video player'] {
 }
 
 @media screen and (min-width: 768px) {
-  .footer-content {
+  /*.footer-content {
     display: grid;
     align-items: center;
     justify-content: space-between;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-  }
-  .footer-list {
+  }*/
+  /*.footer-list {
     text-align: left;
-  }
+  }*/
 }
